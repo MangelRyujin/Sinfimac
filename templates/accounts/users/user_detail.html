@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Detalle de usuario{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom ">
+    <h1 class="">{{user.username}}</h1>
+    
+</div>
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Username</strong>: {{user.username}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Email</strong>: {{user.email}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Nombre</strong>: {{user.first_name}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Apellidos</strong>: {{user.last_name}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Rol</strong>: {{user.rol}}</span>
+    
+</div>
+{% if user.rol.name == 'tecnico' %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Agencia</strong>: {{user.agency.name}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Zona</strong>: {{user.zone}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Banco</strong>: {{user.bank}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Cuenta</strong>: {{user.account}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Yaple Plin</strong>: {{user.yaple_plin}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>CCI</strong>: {{user.cci}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>DNI</strong>: {{user.dni}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Calzado</strong>: {{user.shoe_size}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Polo</strong>: {{user.polo_size}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-5 border-bottom ">
+    <span class=""><strong>Cumpleaños</strong>: {{user.birthdate}}</span>
+    
+</div>
+{% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %}Modificar Usuario{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="">Modificar {{user.username}}</h1>
+</div>
+
+    <form method="post" enctype="multipart/form-data" class="row g-4">
+        {% csrf_token %}
+        <div class="col-12 col-sm-6">
+            <div class=" input-group  ">
+                      
+                <input type="text" value="{% if form.username.value %}{{form.username.value}}{% endif %}" class="form-control" id="floatingInputUsername" name='username' required placeholder="Username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                
+                <label for="floatingInputUsername" class="input-group-text" id="basic-addon2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="20 bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                  </svg>
+                </label>
+                
+              </div>
+              {% if form.username.errors %}
+                <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+                    {% for error in form.username.errors %}
+                        {{ error }}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class=" input-group ">
+            
+            <input type="email" class="form-control" value="{% if form.email.value %}{{form.email.value}}{% endif %}" id="floatingInputEmail" name='email' required placeholder="Correo electrónico" aria-label="Recipient's email" aria-describedby="basic-addon2">
+            
+            <label for="floatingInputEmail" class="input-group-text" id="basic-addon2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-google" viewBox="0 0 16 16">
+                <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"/>
+              </svg>
+            </label>
+            
+          </div>
+          {% if form.email.errors %}
+      <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+          {% for error in form.email.errors %}
+              {{ error }}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="col-12 col-sm-6">
+      <div class=" input-group  ">
+                
+          <input type="text" value="{% if form.first_name.value %}{{form.first_name.value}}{% endif %}" class="form-control" id="floatingInputFirstName" name='first_name' required placeholder="Nombre" aria-label="Recipient's FirstName" aria-describedby="basic-addon2">
+          
+          <label for="floatingInputFirstName" class="input-group-text" id="basic-addon2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-1-square-fill" viewBox="0 0 16 16">
+              <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm7.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383z"/>
+            </svg>
+          </label>
+          
+        </div>
+        {% if form.first_name.errors %}
+          <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+              {% for error in form.first_name.errors %}
+                  {{ error }}
+              {% endfor %}
+            </div>
+          {% endif %}
+  </div>
+    <div class="col-12 col-sm-6">
+        <div class=" input-group  ">
+                
+            <input type="text" value="{% if form.last_name.value %}{{form.last_name.value}}{% endif %}" class="form-control" id="floatingInputLastName" name='last_name' required placeholder="Apellidos" aria-label="Recipient's LastName" aria-describedby="basic-addon2">
+            
+            <label for="floatingInputLastName" class="input-group-text" id="basic-addon2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-2-square-fill" viewBox="0 0 16 16">
+                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm4.646 6.24v.07H5.375v-.064c0-1.213.879-2.402 2.637-2.402 1.582 0 2.613.949 2.613 2.215 0 1.002-.6 1.667-1.287 2.43l-.096.107-1.974 2.22v.077h3.498V12H5.422v-.832l2.97-3.293c.434-.475.903-1.008.903-1.705 0-.744-.557-1.236-1.313-1.236-.843 0-1.336.615-1.336 1.306"/>
+            </svg>
+            </label>
+            
+        </div>
+        {% if form.last_name.errors %}
+            <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+                {% for error in form.last_name.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            {% endif %}
+    </div>
+    <div class="col-12 col-sm-6"> 
+        <div class="form-check d-flex justify-content-start align-items-center mb-2">
+            <input class="form-check-input" value="true" name="is_active" type="radio" name="flexRadioDefault" id="flexRadioDefault1" {% if form.instance.is_active %}checked{% endif %}>
+            <label class="form-check-label" for="flexRadioDefault1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-success mx-2 bi-person-fill-check" viewBox="0 0 16 16">
+                    <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+                  </svg>
+            Activo
+            </label>
+        </div>
+        <div class="form-check d-flex justify-content-start align-items-center">
+            <input class="form-check-input" value="false" name="is_active" type="radio" name="flexRadioDefault" id="flexRadioDefault2" {% if not form.instance.is_active %}checked{% endif %}>
+            <label class="form-check-label" for="flexRadioDefault2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-danger mx-2 bi-person-fill-slash" viewBox="0 0 16 16">
+                    <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+                  </svg>
+            No activo
+            </label>
+        </div>
+    </div>
+        {% if message %}
+        <div class="col-12"> 
+            <div class="alert alert-success mb-0" role="alert">
+               {{message}}
+            </div>
+            </div>
+        {% endif %}
+        
+        <div class="col-12 text-center text-sm-end">
+            <button type="submit" class="btn btn-bd-primary">Actualizar</button>
+        </div>
+    </form>
+
+
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('imagePreview');
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
+{% endblock %}

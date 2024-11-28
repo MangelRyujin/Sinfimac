@@ -1,0 +1,339 @@
+{% extends "base.html" %}
+{% block title %}Modificar técnico{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="">Modificar {{user.username}}</h1>
+</div>
+
+    <form method="post" action="{% url "userTechnicalEdit" pk=user.pk %}" enctype="multipart/form-data" class="row g-4">
+        {% csrf_token %}
+        <div class="col-12 col-sm-6">
+          <div class=" input-group  ">
+                    
+              <input type="text" value="{% if form.username.value %}{{form.username.value}}{% endif %}" class="form-control" id="floatingInputUsername" name='username' required placeholder="Username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              
+              <label for="floatingInputUsername" class="input-group-text" id="basic-addon2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="20 bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+              </label>
+              
+            </div>
+            {% if form.username.errors %}
+              <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+                  {% for error in form.username.errors %}
+                      {{ error }}
+                  {% endfor %}
+                </div>
+              {% endif %}
+      </div>
+      <div class="col-12 col-sm-6">
+        <div class=" input-group ">
+          
+          <input type="email" class="form-control" value="{% if form.email.value %}{{form.email.value}}{% endif %}" id="floatingInputEmail" name='email' required placeholder="Correo electrónico" aria-label="Recipient's email" aria-describedby="basic-addon2">
+          
+          <label for="floatingInputEmail" class="input-group-text" id="basic-addon2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-google" viewBox="0 0 16 16">
+              <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"/>
+            </svg>
+          </label>
+          
+        </div>
+        {% if form.email.errors %}
+    <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+        {% for error in form.email.errors %}
+            {{ error }}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  <div class="col-12 col-sm-6">
+    <div class=" input-group  ">
+              
+        <input type="text" value="{% if form.first_name.value %}{{form.first_name.value}}{% endif %}" class="form-control" id="floatingInputFirstName" name='first_name' required placeholder="Nombre" aria-label="Recipient's FirstName" aria-describedby="basic-addon2">
+        
+        <label for="floatingInputFirstName" class="input-group-text" id="basic-addon2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-1-square-fill" viewBox="0 0 16 16">
+            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm7.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383z"/>
+          </svg>
+        </label>
+        
+      </div>
+      {% if form.first_name.errors %}
+        <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+            {% for error in form.first_name.errors %}
+                {{ error }}
+            {% endfor %}
+          </div>
+        {% endif %}
+</div>
+  
+<div class="col-12 col-sm-6">
+  <div class=" input-group  ">
+            
+      <input type="text" value="{% if form.last_name.value %}{{form.last_name.value}}{% endif %}" class="form-control" id="floatingInputLastName" name='last_name' required placeholder="Apellidos" aria-label="Recipient's LastName" aria-describedby="basic-addon2">
+      
+      <label for="floatingInputLastName" class="input-group-text" id="basic-addon2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-2-square-fill" viewBox="0 0 16 16">
+          <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm4.646 6.24v.07H5.375v-.064c0-1.213.879-2.402 2.637-2.402 1.582 0 2.613.949 2.613 2.215 0 1.002-.6 1.667-1.287 2.43l-.096.107-1.974 2.22v.077h3.498V12H5.422v-.832l2.97-3.293c.434-.475.903-1.008.903-1.705 0-.744-.557-1.236-1.313-1.236-.843 0-1.336.615-1.336 1.306"/>
+        </svg>
+      </label>
+      
+    </div>
+    {% if form.last_name.errors %}
+      <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+          {% for error in form.last_name.errors %}
+              {{ error }}
+          {% endfor %}
+        </div>
+      {% endif %}
+</div>
+  <div class="col-12 col-sm-6">
+    <div class="input-group ">
+      <select class="form-select" name="agency" id="inputGroupSelectAgencyCreate">
+        
+        {% for agency in agencies %}
+          <option value="{{agency.pk}}" {% if user.agency.pk == agency.pk %}selected{% endif %} >{{agency.name}}</option>
+        {% endfor %}
+      </select>
+      <label class="input-group-text" for="inputGroupSelectAgencyCreate">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-person-badge-fill" viewBox="0 0 16 16">
+        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6m5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1z"/>
+      </svg></label>
+    </div>
+    {% if form.agency.errors %}
+          <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+              {% for error in form.agency.errors %}
+                  {{ error }}
+              {% endfor %}
+            </div>
+          {% endif %}
+  </div>
+  <div class="col-12 col-sm-6">
+    <div class=" input-group  ">
+              
+        <input type="text" value="{% if form.dni.value %}{{form.dni.value}}{% endif %}" class="form-control" id="floatingInputdni" name='dni' required placeholder="DNI" aria-label="Recipient's DNI" aria-describedby="basic-addon2">
+        
+        <label for="floatingInputdni" class="input-group-text" id="basic-addon2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-person-vcard-fill" viewBox="0 0 16 16">
+            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0"/>
+          </svg>
+        </label>
+        
+      </div>
+      {% if form.dni.errors %}
+        <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+            {% for error in form.dni.errors %}
+                {{ error }}
+            {% endfor %}
+          </div>
+        {% endif %}
+</div>
+  <div class="col-12 col-sm-6">
+    <div class=" input-group  ">
+              
+        <input type="text" value="{% if form.zone.value %}{{form.zone.value}}{% endif %}" class="form-control" id="floatingInputZone" name='zone' required placeholder="Zona" aria-label="Recipient's Zone" aria-describedby="basic-addon2">
+        
+        <label for="floatingInputZone" class="input-group-text" id="basic-addon2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-geo-alt-fill" viewBox="0 0 16 16">
+            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+          </svg>
+        </label>
+        
+      </div>
+      {% if form.zone.errors %}
+        <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+            {% for error in form.zone.errors %}
+                {{ error }}
+            {% endfor %}
+          </div>
+        {% endif %}
+</div>
+  
+<div class="col-12 col-sm-6">
+  <div class=" input-group  ">
+    
+      <input type="date" value="{{user.birthdate|date:'Y-m-d'}}" class="form-control" id="floatingInputbirthdate" name='birthdate' placeholder="Fecha" aria-label="Recipient's birthdate" aria-describedby="basic-addon2">
+      
+      <label for="floatingInputbirthdate" class="input-group-text" id="basic-addon2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-cake2-fill" viewBox="0 0 16 16">
+          <path d="m2.899.804.595-.792.598.79A.747.747 0 0 1 4 1.806v4.886q-.532-.09-1-.201V1.813a.747.747 0 0 1-.1-1.01ZM13 1.806v4.685a15 15 0 0 1-1 .201v-4.88a.747.747 0 0 1-.1-1.007l.595-.792.598.79A.746.746 0 0 1 13 1.806m-3 0a.746.746 0 0 0 .092-1.004l-.598-.79-.595.792A.747.747 0 0 0 9 1.813v5.17q.512-.02 1-.055zm-3 0v5.176q-.512-.018-1-.054V1.813a.747.747 0 0 1-.1-1.01l.595-.79.598.789A.747.747 0 0 1 7 1.806"/>
+          <path d="M4.5 6.988V4.226a23 23 0 0 1 1-.114V7.16c0 .131.101.24.232.25l.231.017q.498.037 1.02.055l.258.01a.25.25 0 0 0 .26-.25V4.003a29 29 0 0 1 1 0V7.24a.25.25 0 0 0 .258.25l.259-.009q.52-.018 1.019-.055l.231-.017a.25.25 0 0 0 .232-.25V4.112q.518.047 1 .114v2.762a.25.25 0 0 0 .292.246l.291-.049q.547-.091 1.033-.208l.192-.046a.25.25 0 0 0 .192-.243V4.621c.672.184 1.251.409 1.677.678.415.261.823.655.823 1.2V13.5c0 .546-.408.94-.823 1.201-.44.278-1.043.51-1.745.696-1.41.376-3.33.603-5.432.603s-4.022-.227-5.432-.603c-.702-.187-1.305-.418-1.745-.696C.408 14.44 0 14.046 0 13.5v-7c0-.546.408-.94.823-1.201.426-.269 1.005-.494 1.677-.678v2.067c0 .116.08.216.192.243l.192.046q.486.116 1.033.208l.292.05a.25.25 0 0 0 .291-.247M1 8.82v1.659a1.935 1.935 0 0 0 2.298.43.935.935 0 0 1 1.08.175l.348.349a2 2 0 0 0 2.615.185l.059-.044a1 1 0 0 1 1.2 0l.06.044a2 2 0 0 0 2.613-.185l.348-.348a.94.94 0 0 1 1.082-.175c.781.39 1.718.208 2.297-.426V8.833l-.68.907a.94.94 0 0 1-1.17.276 1.94 1.94 0 0 0-2.236.363l-.348.348a1 1 0 0 1-1.307.092l-.06-.044a2 2 0 0 0-2.399 0l-.06.044a1 1 0 0 1-1.306-.092l-.35-.35a1.935 1.935 0 0 0-2.233-.362.935.935 0 0 1-1.168-.277z"/>
+        </svg>
+      </label>
+      
+    </div>
+    {% if form.birthdate.errors %}
+      <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+          {% for error in form.birthdate.errors %}
+              {{ error }}
+          {% endfor %}
+        </div>
+      {% endif %}
+</div>
+<div class="col-12 col-sm-6">
+<div class=" input-group  ">
+          
+    <input type="number" min=30 max=46 value="{% if form.shoe_size.value %}{{form.shoe_size.value}}{% endif %}" class="form-control" id="floatingInputshoe_size" name='shoe_size' required placeholder="Calzado" aria-label="Recipient's shoe_size" aria-describedby="basic-addon2">
+    
+    <label for="floatingInputshoe_size" class="input-group-text" id="basic-addon2">
+      Calzado 30-46
+    </label>
+    
+  </div>
+  {% if form.shoe_size.errors %}
+    <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+        {% for error in form.shoe_size.errors %}
+            {{ error }}
+        {% endfor %}
+      </div>
+    {% endif %}
+</div>
+<div class="col-12 col-sm-6">
+<div class=" input-group  ">
+          
+    <input type="text" value="{% if form.polo_size.value %}{{form.polo_size.value}}{% endif %}" class="form-control" id="floatingInputpolo_size" name='polo_size' required placeholder="Polo" aria-label="Recipient's polo_size" aria-describedby="basic-addon2">
+    
+    <label for="floatingInputpolo_size" class="input-group-text" id="basic-addon2">
+      Polo
+    </label>
+    
+  </div>
+  {% if form.polo_size.errors %}
+    <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+        {% for error in form.polo_size.errors %}
+            {{ error }}
+        {% endfor %}
+      </div>
+    {% endif %}
+</div>
+<div class="col-12 col-sm-6">
+<div class=" input-group  ">
+          
+    <input type="text" value="{% if form.bank.value %}{{form.bank.value}}{% endif %}" class="form-control" id="floatingInputbank" name='bank' required placeholder="Bank" aria-label="Recipient's bank" aria-describedby="basic-addon2">
+    
+    <label for="floatingInputbank" class="input-group-text" id="basic-addon2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-bank" viewBox="0 0 16 16">
+        <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z"/>
+      </svg>
+    </label>
+    
+  </div>
+  {% if form.bank.errors %}
+    <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+        {% for error in form.bank.errors %}
+            {{ error }}
+        {% endfor %}
+      </div>
+    {% endif %}
+</div>
+<div class="col-12 col-sm-6">
+<div class=" input-group  ">
+          
+    <input type="text" value="{% if form.account.value %}{{form.account.value}}{% endif %}" class="form-control" id="floatingInputaccount" name='account' required placeholder="Cuenta" aria-label="Recipient's account" aria-describedby="basic-addon2">
+    
+    <label for="floatingInputaccount" class="input-group-text" id="basic-addon2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" bi-credit-card-2-back" viewBox="0 0 16 16">
+        <path d="M11 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5z"/>
+        <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm13 2v5H1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1m-1 9H2a1 1 0 0 1-1-1v-1h14v1a1 1 0 0 1-1 1"/>
+      </svg>
+    </label>
+    
+  </div>
+  {% if form.account.errors %}
+    <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+        {% for error in form.account.errors %}
+            {{ error }}
+        {% endfor %}
+      </div>
+    {% endif %}
+</div>
+<div class="col-12 col-sm-6">
+<div class=" input-group  ">
+          
+    <input type="text" value="{% if form.yaple_plin.value %}{{form.yaple_plin.value}}{% endif %}" class="form-control" id="floatingInputyaple_plin" name='yaple_plin' required placeholder="yaple plin" aria-label="Recipient's yaple_plin" aria-describedby="basic-addon2">
+    
+    <label for="floatingInputyaple_plin" class="input-group-text" id="basic-addon2">
+      YAPLE PLIN
+    </label>
+    
+  </div>
+  {% if form.yaple_plin.errors %}
+    <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+        {% for error in form.yaple_plin.errors %}
+            {{ error }}
+        {% endfor %}
+      </div>
+    {% endif %}
+</div>
+
+<div class="col-12 col-sm-6">
+<div class=" input-group  ">
+          
+    <input type="text" value="{% if form.cci.value %}{{form.cci.value}}{% endif %}" class="form-control" id="floatingInputcci" name='cci' required placeholder="CCI" aria-label="Recipient's cci" aria-describedby="basic-addon2">
+    
+    <label for="floatingInputcci" class="input-group-text" id="basic-addon2">
+      CCI
+    </label>
+    
+  </div>
+  {% if form.cci.errors %}
+    <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+        {% for error in form.cci.errors %}
+            {{ error }}
+        {% endfor %}
+      </div>
+    {% endif %}
+</div>
+
+
+<div class="col-12 "> 
+<div class="form-check d-flex justify-content-start align-items-center mb-2">
+    <input class="form-check-input" value="true" name="is_active" type="radio" name="flexRadioDefault" id="flexRadioDefault1" {% if form.instance.is_active %}checked{% endif %}>
+    <label class="form-check-label" for="flexRadioDefault1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-success mx-2 bi-person-fill-check" viewBox="0 0 16 16">
+            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+          </svg>
+    Activo
+    </label>
+</div>
+<div class="form-check d-flex justify-content-start align-items-center">
+    <input class="form-check-input" value="false" name="is_active" type="radio" name="flexRadioDefault" id="flexRadioDefault2" {% if not form.instance.is_active %}checked{% endif %}>
+    <label class="form-check-label" for="flexRadioDefault2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-danger mx-2 bi-person-fill-slash" viewBox="0 0 16 16">
+            <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+          </svg>
+    No activo
+    </label>
+</div>
+</div>
+        {% if message %}
+        <div class="col-12"> 
+            <div class="alert alert-success mb-0" role="alert">
+               {{message}}
+            </div>
+            </div>
+        {% endif %}
+        
+        <div class="col-12 text-center text-sm-end">
+            <button type="submit" class="btn btn-bd-primary">Actualizar</button>
+        </div>
+    </form>
+
+
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('imagePreview');
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
+{% endblock %}

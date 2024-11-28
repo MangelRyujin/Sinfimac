@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Mi perfil{% endblock %}
+{% block content %}
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom  ">
+              <h1 class="">Mi perfil</h1>
+              
+            </div>
+       
+             {% if request.user.rol.name == 'gestora' %}
+                {% include "accounts/perfil/gestore_form.html" %}
+             {% endif %} 
+          
+             {% if request.user.rol.name == 'tecnico' %}
+              {% include "accounts/perfil/technical_form.html" %}
+            {% endif %} 
+      
+{% endblock content %}

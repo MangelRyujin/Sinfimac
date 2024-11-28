@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Detalle de agencia{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom ">
+    <h1 class="">{{agency.name}}</h1>
+    
+</div>
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Código topáz</strong>: {{agency.topaz_code}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Código EBS</strong>: {{agency.ebs_code}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Distrito</strong>: {{agency.district}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Región</strong>: {{agency.region}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Provincia</strong>: {{agency.province}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Departamento</strong>: {{agency.department}}</span>
+    
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pb-2 mb-3 border-bottom ">
+    <span class=""><strong>Dirección</strong>: {{agency.address}}</span>
+    
+</div>
+
+
+
+{% endblock %}
+

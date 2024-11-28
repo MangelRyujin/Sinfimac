@@ -1,0 +1,185 @@
+.bi {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+}
+
+.dropdown-toggle::after {
+  display: none;
+  
+}
+
+.bg-delete{
+  background: #de4353 !important;
+}
+
+.bg-create{
+  background: #2eb05e !important;
+}
+
+
+.color-view{
+  color: #00acee;
+}
+
+.color-delete{
+  color: #de4353 !important;
+}
+
+.color-create{
+  color: #2eb05e !important;
+}
+
+.bg-edit{
+  background: #dd7e30 !important;
+}
+
+.form-floating>label {
+
+  left: 10px !important;
+ 
+}
+
+.table-min{
+  min-width: 200px !important;
+}
+
+.table-min-code{
+  min-width: 150px !important;
+}
+
+
+/*
+ * Sidebar
+ */
+
+ .side-fix{
+  position: relative;
+}
+
+
+
+@media (min-width: 768px) {
+  .sidebar .offcanvas-lg {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 48px;
+  }
+  .navbar-search {
+    display: block;
+  }
+  .side-fix{
+    position: fixed;
+  }
+}
+
+
+
+
+.sidebar .nav-link {
+  font-size: .875rem;
+  font-weight: 500;
+}
+
+
+.sidebar-heading {
+  font-size: .75rem;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+}
+
+
+.actions{
+  min-width: 120px;
+  overflow: hidden;
+}
+
+
+/* .bi-whatsapp:hover,
+.bi-whatsapp:focus{
+  cursor: pointer;
+  color: #25D366;
+  transition: all .3s;
+} */
+
+.bi-facebook:hover,
+.bi-facebook:focus{
+  cursor: pointer;
+  color: #3b5998;
+  transition: all .3s;
+}
+
+.bi-twitter:hover,
+.bi-twitter:focus{
+  cursor: pointer;
+  color: #00acee;
+  transition: all .3s;
+}
+
+.bi-instagram:hover,
+.bi-instagram:focus{
+  cursor: pointer;
+  color:  #c13584;
+  transition: all .3s;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.table-width-50{
+  width: 50px !important ;
+}
+
+.table-width-80{
+  width: 80px !important ;
+}
+
+.table-width-100{
+  width: 100px !important ;
+}
+
+
+.card-section{
+  transform: scale(1);
+  transition: all .3s;
+  
+}
+
+.card-section:hover{
+  transform: scale(.99);
+
+}
+
+.card-operations{
+  transform: scale(1);
+  transition: all .3s;
+}
+
+.card-operations:hover{
+  transform: scale(.99);
+}
+
+.side-fix{
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  
+  .side-fix{
+    position: fixed;
+  }
+}

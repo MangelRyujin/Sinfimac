@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Modificar servicio{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="">Modificar: {{service.name}}</h1>
+</div>
+
+    <form method="post" action="{% url "serviceEdit" pk=service.pk %}" enctype="multipart/form-data" class="row g-4">
+        {% csrf_token %}
+        <div class="col-12 col-sm-6">
+          <div class=" input-group  ">
+                    
+              <input type="text" value="{% if form.name.value %}{{form.name.value}}{% endif %}" class="form-control" id="floatingInputName" name='name' required placeholder="Nombre" aria-label="Recipient's name" aria-describedby="basic-addon2">
+              
+              <label for="floatingInputName" class="input-group-text" id="basic-addon2">
+                Nombre
+              </label>
+              
+            </div>
+            {% if form.name.errors %}
+              <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+                  {% for error in form.name.errors %}
+                      {{ error }}
+                  {% endfor %}
+                </div>
+              {% endif %}
+      </div>
+      
+        {% if message %}
+        <div class="col-12"> 
+            <div class="alert alert-success mb-0" role="alert">
+               {{message}}
+            </div>
+            </div>
+        {% endif %}
+        
+        <div class="col-12 text-center text-sm-end">
+            <button type="submit" class="btn btn-bd-primary">Actualizar</button>
+        </div>
+    </form>
+
+
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('imagePreview');
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
+{% endblock %}

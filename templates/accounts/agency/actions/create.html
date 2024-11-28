@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Crear agencia{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="">Crear agencia</h1>
+</div>
+
+
+    <form class="text-center row g-4 mb-4" action="{% url "agencyCreate" %}" method="post">
+        {% csrf_token %}
+        <div class="col-12 col-sm-6">
+            <div class=" input-group  ">
+                      
+                <input type="text" value="{% if form.name.value %}{{form.name.value}}{% endif %}" class="form-control" id="floatingInputName" name='name' required placeholder="Nombre" aria-label="Recipient's name" aria-describedby="basic-addon2">
+                
+                <label for="floatingInputName" class="input-group-text" id="basic-addon2">
+                  Nombre
+                </label>
+                
+              </div>
+              {% if form.name.errors %}
+                <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+                    {% for error in form.name.errors %}
+                        {{ error }}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class=" input-group  ">
+                    
+              <input type="text" value="{% if form.topaz_code.value %}{{form.topaz_code.value}}{% endif %}" class="form-control" id="floatingInputTopazCode" name='topaz_code' required placeholder="Código topáz" aria-label="Recipient's topaz code" aria-describedby="basic-addon2">
+              
+              <label for="floatingInputTopazCode" class="input-group-text" id="basic-addon2">
+                Código topáz
+              </label>
+              
+            </div>
+            {% if form.topaz_code.errors %}
+              <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+                  {% for error in form.topaz_code.errors %}
+                      {{ error }}
+                  {% endfor %}
+                </div>
+              {% endif %}
+      </div>
+      <div class="col-12 col-sm-6">
+        <div class=" input-group  ">
+                  
+            <input type="text" value="{% if form.ebs_code.value %}{{form.ebs_code.value}}{% endif %}" class="form-control" id="floatingInputEBSCode" name='ebs_code' required placeholder="Código EBS" aria-label="Recipient's ebs code" aria-describedby="basic-addon2">
+            
+            <label for="floatingInputEBSCode" class="input-group-text" id="basic-addon2">
+              Código EBS
+            </label>
+            
+          </div>
+          {% if form.ebs_code.errors %}
+            <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+                {% for error in form.ebs_code.errors %}
+                    {{ error }}
+                {% endfor %}
+              </div>
+            {% endif %}
+    </div>
+      <div class="col-12 col-sm-6">
+        <div class=" input-group  ">
+                  
+            <input type="text" value="{% if form.province.value %}{{form.province.value}}{% endif %}" class="form-control" id="floatingInputProvince" name='province' required placeholder="Provincia" aria-label="Recipient's name" aria-describedby="basic-addon2">
+            
+            <label for="floatingInputProvince" class="input-group-text" id="basic-addon2">
+              Provincia
+            </label>
+            
+          </div>
+          {% if form.province.errors %}
+            <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+                {% for error in form.province.errors %}
+                    {{ error }}
+                {% endfor %}
+              </div>
+            {% endif %}
+    </div>
+    <div class="col-12 col-sm-6">
+      <div class=" input-group  ">
+                
+          <input type="text" value="{% if form.district.value %}{{form.district.value}}{% endif %}" class="form-control" id="floatingInputDistrict" name='district' required placeholder="Distrito" aria-label="Recipient's name" aria-describedby="basic-addon2">
+          
+          <label for="floatingInputDistrict" class="input-group-text" id="basic-addon2">
+            Distrito
+          </label>
+          
+        </div>
+        {% if form.district.errors %}
+          <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+              {% for error in form.district.errors %}
+                  {{ error }}
+              {% endfor %}
+            </div>
+          {% endif %}
+  </div>
+  <div class="col-12 col-sm-6">
+    <div class=" input-group  ">
+              
+        <input type="text" value="{% if form.region.value %}{{form.region.value}}{% endif %}" class="form-control" id="floatingInputRegion" name='region' required placeholder="Región" aria-label="Recipient's name" aria-describedby="basic-addon2">
+        
+        <label for="floatingInputRegion" class="input-group-text" id="basic-addon2">
+          Región
+        </label>
+        
+      </div>
+      {% if form.region.errors %}
+        <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+            {% for error in form.region.errors %}
+                {{ error }}
+            {% endfor %}
+          </div>
+        {% endif %}
+</div>
+<div class="col-12 col-sm-6">
+  <div class=" input-group  ">
+            
+      <input type="text" value="{% if form.department.value %}{{form.department.value}}{% endif %}" class="form-control" id="floatingInputDepartament" name='department' required placeholder="Departmento" aria-label="Recipient's name" aria-describedby="basic-addon2">
+      
+      <label for="floatingInputDepartament" class="input-group-text" id="basic-addon2">
+        Departamento
+      </label>
+      
+    </div>
+    {% if form.department.errors %}
+      <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+          {% for error in form.department.errors %}
+              {{ error }}
+          {% endfor %}
+        </div>
+      {% endif %}
+</div>
+<div class="col-12 col-sm-6">
+  <div class=" input-group  ">
+            
+      <input type="text" value="{% if form.address.value %}{{form.address.value}}{% endif %}" class="form-control" id="floatingInputAddress" name='address' required placeholder="Dirección" aria-label="Recipient's name" aria-describedby="basic-addon2">
+      
+      <label for="floatingInputAddress" class="input-group-text" id="basic-addon2">
+        Dirección
+      </label>
+      
+    </div>
+    {% if form.address.errors %}
+      <div class="alert alert-danger mb-0 mt-2 p-2 text-start">
+          {% for error in form.address.errors %}
+              {{ error }}
+          {% endfor %}
+        </div>
+      {% endif %}
+</div>
+      <div class="col-12 text-center text-sm-end">
+        <button class="btn btn-bd-primary py-2 " type="submit">Registrar</button>
+      </div>
+      </form>
+
+
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('imagePreview');
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+<script src="{% static 'assets/js/registerpass.js' %}"></script>
+
+{% endblock %}
