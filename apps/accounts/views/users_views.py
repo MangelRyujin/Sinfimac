@@ -12,7 +12,7 @@ from apps.accounts.models import Agency, User
 @group_required('supervisor','gestor')
 @login_required(login_url='/login/')
 def users_view(request):
-    if request.user.rol=="supervisor":
+    if request.user.rol.name=="supervisor":
         users = User.objects.exclude(
             Q(groups__name__in=["supervisor"]) | Q(is_delete=True)
         )
