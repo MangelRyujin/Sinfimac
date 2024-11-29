@@ -12,9 +12,17 @@ from apps.accounts.models import Agency, User
 @group_required('supervisor','gestor')
 @login_required(login_url='/login/')
 def users_view(request):
-    context={"users":User.objects.exclude(
-        Q(groups__name__in=["supervisor","gestor"]) | Q(is_delete=True)
-    )}
+    if request.user.rol=="supervisor":
+        users = User.objects.exclude(
+            Q(groups__name__in=["supervisor"]) | Q(is_delete=True)
+        )
+    else:
+        users = User.objects.exclude(
+            Q(groups__name__in=["supervisor","gestor"]) | Q(is_delete=True)
+        )
+    context={
+        "users":users
+    }
     return render(request, 'accounts/users/index.html',context)
 
 
